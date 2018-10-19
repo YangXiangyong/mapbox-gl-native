@@ -94,7 +94,7 @@ public class MapView extends FrameLayout implements NativeMapView.ViewCallback {
   private MapKeyListener mapKeyListener;
   private MapZoomButtonController mapZoomButtonController;
   private Bundle savedInstanceState;
-  private boolean isActivated;
+  private boolean isStarted;
 
   @UiThread
   public MapView(@NonNull Context context) {
@@ -369,10 +369,10 @@ public class MapView extends FrameLayout implements NativeMapView.ViewCallback {
    */
   @UiThread
   public void onStart() {
-    if (!isActivated) {
+    if (!isStarted) {
       ConnectivityReceiver.instance(getContext()).activate();
       FileSource.getInstance(getContext()).activate();
-      isActivated = true;
+      isStarted = true;
     }
     if (mapboxMap != null) {
       mapboxMap.onStart();
@@ -418,10 +418,10 @@ public class MapView extends FrameLayout implements NativeMapView.ViewCallback {
       mapRenderer.onStop();
     }
 
-    if (isActivated) {
+    if (isStarted) {
       ConnectivityReceiver.instance(getContext()).deactivate();
       FileSource.getInstance(getContext()).deactivate();
-      isActivated = false;
+      isStarted = false;
     }
   }
 

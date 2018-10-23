@@ -12,9 +12,7 @@ macro(initialize_ios_target target)
 endmacro()
 
 
-include(cmake/icu.cmake)
 include(cmake/loop-darwin.cmake)
-initialize_ios_target(icu)
 initialize_ios_target(mbgl-loop-darwin)
 
 
@@ -60,9 +58,6 @@ macro(mbgl_platform_core)
         PRIVATE platform/default/mbgl/util/default_thread_pool.cpp
         PRIVATE platform/default/mbgl/util/default_thread_pool.cpp
     )
-
-    target_add_mason_package(mbgl-core PUBLIC geojson)
-    target_add_mason_package(mbgl-core PUBLIC polylabel)
 
     target_include_directories(mbgl-core
         PUBLIC platform/darwin

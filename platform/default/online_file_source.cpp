@@ -160,14 +160,22 @@ public:
         maximumConcurrentRequestsOverride = maximumConcurrentRequestsOverride_;
     }
 
+    uint32_t getMaximumConcurrentRequestsBLA() const {
+        return 20;
+    }
+
+    void setMaximumConcurrentRequestsBLA(uint32_t) {
+    }
+
 private:
+
 
     uint32_t getMaximumConcurrentRequests() const {
         if (maximumConcurrentRequestsOverride > 0) {
             return maximumConcurrentRequestsOverride;
         }
         else {
-            return HTTPFileSource::maximumConcurrentRequests();
+            return getMaximumConcurrentRequestsBLA();
         }
     }
 
@@ -471,6 +479,15 @@ ActorRef<OnlineFileRequest> OnlineFileRequest::actor() {
 
     return ActorRef<OnlineFileRequest>(*this, mailbox);
 }
+
+void OnlineFileSource::setMaximumConcurrentRequestsBLA(uint32_t maximumConcurrentRequests_) {
+    impl->setMaximumConcurrentRequestsBLA(maximumConcurrentRequests_);
+}
+
+uint32_t OnlineFileSource::getMaximumConcurrentRequestsBLA() const {
+    return impl->getMaximumConcurrentRequestsBLA();
+}
+
 
 // For testing only:
 

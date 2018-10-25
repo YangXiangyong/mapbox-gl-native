@@ -188,8 +188,8 @@ std::unique_ptr<AsyncRequest> HTTPFileSource::request(const Resource& resource, 
     return std::make_unique<HTTPRequest>(*impl->env, resource, callback);
 }
 
-uint32_t HTTPFileSource::maximumConcurrentRequests() {
-    return 20;
-}
+// uint32_t HTTPFileSource::maximumConcurrentRequests() {
+//     return 20;
+// }
 
 } // namespace mbgl

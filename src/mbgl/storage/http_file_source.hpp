@@ -11,7 +11,7 @@ public:
 
     std::unique_ptr<AsyncRequest> request(const Resource&, Callback) override;
 
-    static uint32_t maximumConcurrentRequests();
+    // static uint32_t maximumConcurrentRequests();
 
     class Impl;
 

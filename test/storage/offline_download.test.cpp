@@ -61,7 +61,8 @@ public:
     }
 
     util::RunLoop loop;
-    StubFileSource fileSource;
+    StubOnlineFileSource fileSource;
+    // StubFileSource fileSource;
     OfflineDatabase db;
     std::size_t size = 0;
 
@@ -277,7 +278,8 @@ TEST(OfflineDownload, Activate) {
 }
 
 TEST(OfflineDownload, DoesNotFloodTheFileSourceWithRequests) {
-    FakeFileSource fileSource;
+    FakeOnlineFileSource fileSource;
+    // FakeFileSource fileSource;
     OfflineTest test;
     auto region = test.createRegion();
     ASSERT_TRUE(region);
@@ -297,7 +299,7 @@ TEST(OfflineDownload, DoesNotFloodTheFileSourceWithRequests) {
     fileSource.respond(Resource::Kind::Style, test.response("style.json"));
     test.loop.runOnce();
 
-    EXPECT_EQ(HTTPFileSource::maximumConcurrentRequests(), fileSource.requests.size());
+    EXPECT_EQ(fileSource.getMaximumConcurrentRequestsBLA(), fileSource.requests.size());
 }
 
 TEST(OfflineDownload, GetStatusNoResources) {

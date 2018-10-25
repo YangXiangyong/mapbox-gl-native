@@ -2,6 +2,10 @@
 
 Mapbox welcomes participation and contributions from everyone. Please read [CONTRIBUTING.md](../../CONTRIBUTING.md) to get started.
 
+## master
+
+* Fixed a crash when using the `MGL_LET`, `MGL_MATCH`, `MGL_IF`, or `MGL_FUNCTION` functions without a colon inside an `NSExpression` or `NSPredicate` format string. ([#13189](https://github.com/mapbox/mapbox-gl-native/pull/13189))
+
 ## 4.6.0
 
 ### Styles and rendering

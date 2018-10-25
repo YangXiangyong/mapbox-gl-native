@@ -6,6 +6,7 @@
 
 * Added an `MGLSymbolStyleLayer.symbolZOrder` property for forcing point features in a symbol layer to be layered in the same order that they are specified in the layer’s associated source. ([#12783](https://github.com/mapbox/mapbox-gl-native/pull/12783))
 * Fixed a crash when a style layer `*-pattern` property evaluates to nil for a particular feature. ([#12896](https://github.com/mapbox/mapbox-gl-native/pull/12896))
+* Fixed a crash when using the `MGL_LET`, `MGL_MATCH`, `MGL_IF`, or `MGL_FUNCTION` functions without a colon inside an `NSExpression` or `NSPredicate` format string. ([#13189](https://github.com/mapbox/mapbox-gl-native/pull/13189))
 * Fixed an issue where fill and line layers would occasionally flicker on zoom ([#12982](https://github.com/mapbox/mapbox-gl-native/pull/12982))
 
 ### Offline maps
@@ -13,7 +14,7 @@
 * Added `-[MGLOfflineStorage addContentsOfFile:withCompletionHandler:]` and `-[MGLOfflineStorage addContentsOfURL:withCompletionHandler:]` methods to add pregenerated offline packs to offline storage. ([#12791](https://github.com/mapbox/mapbox-gl-native/pull/12791))
 * Fixed an issue where some tiles weren't rendered correctly when no internet connectivity was available ([#12931](https://github.com/mapbox/mapbox-gl-native/pull/12931))
 
-### Other changes	
+### Other changes
 
 * Added `MGLAltitudeForZoomLevel` and `MGLZoomLevelForAltitude` to public API for conversion between zoom levels and altitudes. ([#12986](https://github.com/mapbox/mapbox-gl-native/pull/12986))
 * Deprecated the `+[MGLMapCamera cameraLookingAtCenterCoordinate:fromDistance:pitch:heading:]` method in favor of `+[MGLMapCamera cameraLookingAtCenterCoordinate:altitude:pitch:heading:]` and `+[MGLMapCamera cameraLookingAtCenterCoordinate:acrossDistance:pitch:heading:]`. ([#12966](https://github.com/mapbox/mapbox-gl-native/pull/12966))

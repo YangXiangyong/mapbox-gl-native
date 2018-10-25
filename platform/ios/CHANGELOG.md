@@ -2,6 +2,10 @@
 
 Mapbox welcomes participation and contributions from everyone. Please read [CONTRIBUTING.md](../../CONTRIBUTING.md) to get started.
 
+## master
+
+* Fixed a crash setting the `MGLLineStyleLayer.lineGradient` property to an expression containing the `$lineProgress` variable. Added an `NSExpression.lineProgressVariableExpression` class property that returns an expression for the `$lineProgress` variable. ([#13192](https://github.com/mapbox/mapbox-gl-native/pull/13192))
+
 ## 4.6.0
 
 ### Styles and rendering

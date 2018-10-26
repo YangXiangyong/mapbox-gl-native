@@ -278,9 +278,9 @@ TEST(OfflineDownload, Activate) {
 }
 
 TEST(OfflineDownload, DoesNotFloodTheFileSourceWithRequests) {
+    OfflineTest test;
     FakeOnlineFileSource fileSource;
     // FakeFileSource fileSource;
-    OfflineTest test;
     auto region = test.createRegion();
     ASSERT_TRUE(region);
     OfflineDownload download(

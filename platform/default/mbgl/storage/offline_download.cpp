@@ -340,7 +340,7 @@ void OfflineDownload::continueDownload() {
         return;
     }
 
-    while (!resourcesRemaining.empty() && requests.size() < onlineFileSource.getMaximumConcurrentRequestsBLA()) {
+    while (!resourcesRemaining.empty() && requests.size() < onlineFileSource.getMaximumConcurrentRequests()) {
         ensureResource(resourcesRemaining.front());
         resourcesRemaining.pop_front();
     }
